@@ -6,10 +6,11 @@ def index(request):
     if request.method == "POST":
         username = request.POST["username"]
         email = request.POST['email']
-        print(username, email)
+        workout = request.POST['workout']
         return render(request, "calorie_counter/index.html", {
             "email": email,
             "username": username,
+            "workout": workout,
         })
     else:
         return render(request, "calorie_counter/index.html")
