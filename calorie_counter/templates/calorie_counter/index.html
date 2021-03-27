@@ -19,22 +19,49 @@
         Login
       </button>
     </nav>
+    <br>
     <form method="POST">
         {% csrf_token %}
-    Email: <input type="email" name="email">
-    Username: <input type="text" name="username">
+    <!--Takes the weight in pounds to store as variable "weight" to use in python-->
+    Weight (lbs): <input type="text" name="weight">
+    <br>
+    <!--Takes the weight in pounds to store as variable "goal" of what the user wants to lose-->
+    How much weight are you trying to lose? <input type="number" name="goal">(lbs)
+    <br>
+    <!--Choice between low or high levels of workout-->
+    <p>How often do you workout? (1-2 days per week = low / 3+ days per week = high)</p>
     <select name="workout">
-      <option value="sedentary">sedentary</option>
-      <option value="active">active</option>
+      <option value="low">Low</option>
+      <option value="high">High</option>
+    </select> 
+    <br>
+    <!--Asks the activity level to be used in energy calc-->
+    <select name="activity_level">
+      <option value="sedentary">Sedentary</option>
+      <option value="active">Active</option>
     </select>
-    Workout: 
+    <br>
+    <!--submits the user information and other button resets the fields-->
     <input type="submit" value="register">
+    <input type="reset">
     </form>
 
-    
-    <p>Username: {{username}}</p>
-    <p>Email: {{email}} </p>
-    <p>You chose: {{workout}}</p>
+    <!-- Values that need to be returned after logic.py runs
+    -->
+    <p>BMR: {{bmr}}</p>
+    <p>Total Daily Energy Expenditure: {{Total_Daily_Energy_Expenditure}}</p>
+    <p>Recommended Daily Calories per day if you want to: <br>
+      Lose 0.5 lbs per week: {{Total_Daily_Energy_Expenditure - rate[0]}}<br>
+      Lose 1 lbs per week: {{Total_Daily_Energy_Expenditure - rate[1]}}<br>
+      Lose 1.5 lbs per week: {{Total_Daily_Energy_Expenditure - rate[2]}}<br>
+      Lose 2 lbs per week: {{Total_Daily_Energy_Expenditure - rate[3]}}<br>
+    </p>
+    <p>Time to lose the weight based on your goal of losing {{goal}} lbs: <br>
+      At 0.5 lbs per week it will take you {{time_to_lose_@half}} days to reach your goal. <br>
+      At 1 lbs per week it will take you {{time_to_lose_@one}} days to reach your goal. <br>
+      At 1.5 lbs per week it will take you {{time_to_lose_@one_half}} days to reach your goal. <br>
+      At 2 lbs per week it will take you {{time_to_lose_@two}} days to reach your goal. <br>
+    </p>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
