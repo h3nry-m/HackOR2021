@@ -20,6 +20,7 @@
       </button>
     </nav>
     <form method="POST">
+        {% csrf_token %}
     Email: <input type="email" name="email">
     Username: <input type="text" name="username">
     <input type="submit" value="register">
