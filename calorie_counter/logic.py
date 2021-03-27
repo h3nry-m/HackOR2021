@@ -11,11 +11,11 @@ def TEF(BMR):
     return TEF
 
 
-def Exercise_Energy_Expenditure(Beginner_Workout, _Advanced_Workout):
+def Exercise_Energy_Expenditure(workout):
     """Based off Exercise Level, gives energy expenditure"""
-    if Beginner_Workout == "sedentary":
+    if workout == "sedentary":
         Exercise_Energy_Expenditure = 250
-    elif _Advanced_Workout == "active":
+    elif workout == "active":
         Exercise_Energy_Expenditure = 500
     return Exercise_Energy_Expenditure
 
