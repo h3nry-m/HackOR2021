@@ -23,6 +23,11 @@
         {% csrf_token %}
     Email: <input type="email" name="email">
     Username: <input type="text" name="username">
+    <select>
+      <option value="sedentary" name="workout"> sedentary</option>
+      <option value="active" name="workout"> active</option>
+    </select>
+    Workout: 
     <input type="submit" value="register">
     </form>
 
