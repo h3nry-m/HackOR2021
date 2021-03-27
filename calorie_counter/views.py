@@ -4,8 +4,13 @@ from logic import .
 
 
 def index(request):
+    if request.method == "POST":
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            email = form.cleaned_data['email']
     return render(request, "calorie_counter/index.html", {
-        "test": BMR(20),
+        "email": email,
+        "username": username,
     })
 
 
