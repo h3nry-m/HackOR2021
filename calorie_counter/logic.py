@@ -41,15 +41,14 @@ def recommended_calories(total_daily_energy_expenditure, goal, weight):
     need_to_lose = (goal)
     print(need_to_lose)
     # rate values
-    half_per_week_rate = total_daily_energy_expenditure - 250
-    one_per_week_rate = total_daily_energy_expenditure - 500
+    lose_half = total_daily_energy_expenditure - 250
+    lose_one = total_daily_energy_expenditure - 500
     # array to hold the rate values
-    rate = [half_per_week_rate, one_per_week_rate]
     # calulating the time to reach your goal
     time_to_lose_half = (need_to_lose/0.5)*7
     time_to_lose_one = (need_to_lose/1)*7
     # return all the "time to lose" variables to spit back out
-    return rate, time_to_lose_half, time_to_lose_one
+    return lose_half, lose_one, time_to_lose_half, time_to_lose_one
 
 bb = BMR(160)
 tt = TEF(bb)
