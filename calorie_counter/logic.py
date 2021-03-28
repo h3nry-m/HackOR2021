@@ -4,13 +4,13 @@ def BMR(weight):
     """Takes away and returns BMR"""
     weight = weight * 0.45359237
     BMR = (weight * 20)
-    return BMR
+    return round(BMR, 2)
 
 
 def TEF(BMR):
     """takes away and returns TEF"""
     TEF = (BMR * .1)
-    return TEF
+    return round(TEF, 2)
 
 
 def Exercise_Energy_Expenditure(workout):
@@ -35,7 +35,7 @@ def Total_Daily_Energy_Expenditure(BMR, TEF, Exercise_Energy_Expenditure, Non_Ex
     """sum of BMR, TEF, Exercise Energy Expenditure, and Non-Exercise Activity Thermogenesis"""
     total_daily_energy_expenditure = BMR + TEF + \
         Exercise_Energy_Expenditure + Non_Exercise_Activity_Thermogenesis
-    return total_daily_energy_expenditure
+    return round(total_daily_energy_expenditure, 2)
 
 
 def recommended_calories(total_daily_energy_expenditure, goal, weight):
@@ -43,8 +43,8 @@ def recommended_calories(total_daily_energy_expenditure, goal, weight):
     need_to_lose = (goal)
     print(need_to_lose)
     # rate values
-    lose_half = total_daily_energy_expenditure - 250
-    lose_one = total_daily_energy_expenditure - 500
+    lose_half = round(total_daily_energy_expenditure - 250, 2)
+    lose_one = round(total_daily_energy_expenditure - 500, 2)
     # array to hold the rate values
     # calulating the time to reach your goal
     time_to_lose_half = (need_to_lose/0.5)*7
