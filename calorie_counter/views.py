@@ -15,19 +15,14 @@ def index(request):
         NEAT = Non_Exercise_Activity_Thermogenesis(activity_level)
         TDEE = Total_Daily_Energy_Expenditure(bmr, tef, EEE, NEAT)
         rc = recommended_calories(TDEE, goal, weight)
-        rate = rc[0]
-        lose_half = rate[0]
-        lose_one = rate[1]
-        # lose_one_half = TDEE/rate[2]
-        # lose_two = TDEE/rate[3]
-        time_to_lose_half = rc[1]
-        time_to_lose_one = rc[2]
-        # time_to_lose_one_half = rc[3]
-        # time_to_lose_two = rc[4]
+        lose_half = rc[0]
+        lose_one = rc[1]
+        time_to_lose_half = rc[2]
+        time_to_lose_one = rc[3]
         return render(request, "calorie_counter/index.html", {
             "bmr": bmr,
             "Total_Daily_Energy_Expenditure": TDEE,
-            "rate": rate,
+            # "rate": rate,
             "lose_half": lose_half,
             "lose_one": lose_one,
             # "lose_one_half": lose_one_half,
