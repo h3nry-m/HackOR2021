@@ -1,16 +1,42 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .logic import BMR, TEF, Exercise_Energy_Expenditure, Non_Exercise_Activity_Thermogenesis, Total_Daily_Energy_Expenditure, recommended_calories
 
 
 def index(request):
     if request.method == "POST":
-        username = request.POST["username"]
-        email = request.POST['email']
+        weight = int(request.POST['weight'])
+        goal = int(request.POST['goal'])
         workout = request.POST['workout']
+        activity_level = request.POST['activity_level']
+        bmr = BMR(weight)
+        tef = TEF(bmr)
+        EEE = Exercise_Energy_Expenditure(workout)
+        NEAT = Non_Exercise_Activity_Thermogenesis(activity_level)
+        TDEE = Total_Daily_Energy_Expenditure(bmr, tef, EEE, NEAT)
+        rc = recommended_calories(TDEE, goal, weight)
+        rate = rc[0]
+        lose_half = TDEE/rate[0]
+        lose_one = TDEE/rate[1]
+        lose_one_half = TDEE/rate[2]
+        lose_two = TDEE/rate[3]
+        time_to_lose_half = rc[1]
+        time_to_lose_one = rc[2]
+        time_to_lose_one_half = rc[3]
+        time_to_lose_two = rc[4]
         return render(request, "calorie_counter/index.html", {
-            "email": email,
-            "username": username,
-            "workout": workout,
+            "bmr": bmr,
+            "Total_Daily_Energy_Expenditure": TDEE,
+            "rate": rate,
+            "lose_half": lose_half,
+            "lose_one": lose_one,
+            "lose_one_half": lose_one_half,
+            "lose_two": lose_two,
+            "goal": goal,
+            "time_to_lose_half": time_to_lose_half,
+            "time_to_lose_one": time_to_lose_one,
+            "time_to_lose_one_half": time_to_lose_one_half,
+            "time_to_lose_two": time_to_lose_two,
         })
     else:
         return render(request, "calorie_counter/index.html")
