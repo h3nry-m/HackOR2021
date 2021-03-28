@@ -59,5 +59,5 @@ tt = TEF(bb)
 energy = Exercise_Energy_Expenditure("low")
 active = Non_Exercise_Activity_Thermogenesis("sedentary")
 tdee = Total_Daily_Energy_Expenditure(bb, tt, energy, active)
-
+print(tdee)
 print(recommended_calories(tdee, 5, 160))

@@ -16,8 +16,8 @@ def index(request):
         TDEE = Total_Daily_Energy_Expenditure(bmr, tef, EEE, NEAT)
         rc = recommended_calories(TDEE, goal, weight)
         rate = rc[0]
-        lose_half = TDEE/rate[0]
-        lose_one = TDEE/rate[1]
+        lose_half = rate[0]
+        lose_one = rate[1]
         # lose_one_half = TDEE/rate[2]
         # lose_two = TDEE/rate[3]
         time_to_lose_half = rc[1]
