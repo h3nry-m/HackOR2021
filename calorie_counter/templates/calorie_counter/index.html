@@ -11,57 +11,58 @@
     <title>Fitness Placeholder</title>
   </head>
   <body>
-    <nav>
-      <button>
-        Register
-      </button>
-      <button>
+    <nav = class="navbar bg-dark fixed-top">
+      <h1>Calorie Counter</h1>
+      <div class="container_nav">
+      <button class="login">
         Login
       </button>
+      <button class="register">
+        Register
+      </button>
+    </div>
     </nav>
-    <br>
+    <div class="container">
     <form method="POST">
-        {% csrf_token %}
+      <h2>US Units</h2>
+        {% csrf_token %} <br>
+        
     <!--Takes the weight in pounds to store as variable "weight" to use in python-->
-    Weight (lbs): <input type="text" name="weight">
+    <div class = "rightinput">
+      <div class="simpletext">
+      Weight (lbs):
+      </div>
+      <input type="text" name="weight" class="input_box" required>
+    </div>
     <br>
     <!--Takes the weight in pounds to store as variable "goal" of what the user wants to lose-->
-    How much weight are you trying to lose? <input type="number" name="goal">(lbs)
+    <div class = "rightinput">How much weight are you trying to lose? (lbs)<input type="number" name="goal" class="input_box" required></div>
     <br>
     <!--Choice between low or high levels of workout-->
     <p>How often do you workout? (1-2 days per week = low / 3+ days per week = high)</p>
-    <select name="workout">
+    <div class = "center">
+    <select name="workout" required>
       <option value="low">Low</option>
       <option value="high">High</option>
     </select> 
+  </div>
     <br>
+    <p>How would you characterize your lifestyle?</p>
     <!--Asks the activity level to be used in energy calc-->
-    <select name="activity_level">
+    <div class="center">
+    <select name="activity_level" required>
       <option value="sedentary">Sedentary</option>
       <option value="active">Active</option>
     </select>
+    </div>
     <br>
     <!--submits the user information and other button resets the fields-->
-    <input type="submit" value="register">
-    <input type="reset">
+    <div class="inputbtns">
+    <input type="submit" value="Submit" class="inbtns">
+    <input type="reset" class="inbtns1">
+    </div>
     </form>
-    <!-- Values that need to be returned after logic.py runs
-    -->
-    <p>BMR: {{bmr}}</p>
-    <p>Total Daily Energy Expenditure: {{Total_Daily_Energy_Expenditure}}</p>
-    <p>Recommended Daily Calories per day if you want to: <br>
-      Lose 0.5 lbs per week: {{lose_half}}<br>
-      Lose 1 lbs per week: {{lose_one}}<br>
-      Lose 1.5 lbs per week: {{lose_one_half}}<br>
-      Lose 2 lbs per week: {{lose_two}}<br>
-      
-    </p>
-    <p>Time to lose the weight based on your goal of losing {{goal}} lbs: <br>
-      At 0.5 lbs per week it will take you {{time_to_lose_half}} days to reach your goal. <br>
-      At 1 lbs per week it will take you {{time_to_lose_one}} days to reach your goal. <br>
-      At 1.5 lbs per week it will take you {{time_to_lose_one_half}} days to reach your goal. <br>
-      At 2 lbs per week it will take you {{time_to_lose_two}} days to reach your goal. <br>
-    </p>
+
 
 
     
