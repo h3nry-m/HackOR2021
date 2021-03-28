@@ -5,3 +5,5 @@ Calculates every individual's exact amount of calories needed in a day. Each ind
 * Thermic Effect of Eating: How many calories are needed to eat and digest what is consumed.
 * Exercise Energy Expenditure: The amount of calories burned during exercise.
 * Non-Exercise Acitivity Thermogenesis: The amount of calories used during basic daily movements, such as, fidgeting, standing up, doing chores, etc. 
+
+# Caculate Total Calories Needed to Reach Goal Weight
