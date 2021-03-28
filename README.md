@@ -7,3 +7,4 @@ Calculates every individual's exact amount of calories needed in a day. Each ind
 * Non-Exercise Acitivity Thermogenesis: The amount of calories used during basic daily movements, such as, fidgeting, standing up, doing chores, etc. 
 
 # Caculate Total Calories Needed to Reach Goal Weight
+* Calculates the amount of calories in TDEE that need to be reduced in order to hit a healthy weight loss goal.
