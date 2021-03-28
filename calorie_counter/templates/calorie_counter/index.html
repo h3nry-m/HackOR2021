@@ -62,7 +62,70 @@
     <input type="reset" class="inbtns1">
     </div>
     </form>
+    <div class="output">
+      <h2>Results</h2>
+      <p><strong>BMR:</strong> {{bmr}} Calories/day</p>
+      <p>Total Daily Energy Expenditure: {{Total_Daily_Energy_Expenditure}} Calories/day</p>
+      <p>Recommended Daily Calories per day if you want to: </p>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Rate</th>
+              <th scope="col">Daily Calories</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Lose 0.5 lbs per week:</th>
+              <td>{{Total_Daily_Energy_Expenditure - rate[0]}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Lose 1 lbs per week:</th>
+              <td>{{Total_Daily_Energy_Expenditure - rate[1]}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Lose 1.5 lbs per week:</th>
+              <td>{{Total_Daily_Energy_Expenditure - rate[2]}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Lose 2 lbs per week:</th>
+              <td>{{Total_Daily_Energy_Expenditure - rate[3]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      <p>Time to lose the weight based on your goal of losing {{goal}} lbs:</p> 
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Rate</th>
+              <th scope="col">Days to Reach Goal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">At 0.5 lbs per week it will take you:</th>
+              <td>{{time_to_lose_@half}}</td>
+            </tr>
+            <tr>
+              <th scope="row">At 1 lbs per week it will take you:</th>
+              <td>{{time_to_lose_@one}}</td>
+            </tr>
+            <tr>
+              <th scope="row">At 1.5 lbs per week it will take you:</th>
+              <td>{{time_to_lose_@one_half}}</td>
+            </tr>
+            <tr>
+              <th scope="row">At 2 lbs per week it will take you:</th>
+              <td>{{time_to_lose_@two}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    </div>
+    <div class="credits">
 
+    </div>
+    
 
 
     
