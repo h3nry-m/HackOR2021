@@ -8,3 +8,12 @@ Calculates every individual's exact amount of calories needed in a day. Each ind
 
 # Caculate Total Calories Needed to Reach Goal Weight
 * Calculates the amount of calories in TDEE that need to be reduced in order to hit a healthy weight loss goal.
+
+# How to Run
+* Go to terminal and do a git pull.
+* Then when you're in the folder that has manage.py in it, type in your terminal in python manage.py runserver.
+* Follow the instructions in the terminal then click on the link.
+
+# Installation
+* Make sure to have python installed.
+* Download code from github.
