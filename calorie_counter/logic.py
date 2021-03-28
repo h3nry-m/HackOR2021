@@ -2,7 +2,8 @@
 
 def BMR(weight):
     """Takes away and returns BMR"""
-    BMR = (weight * 10)
+    weight = weight * 0.45359237
+    BMR = (weight * 20)
     return BMR
 
 
@@ -32,7 +33,8 @@ def Non_Exercise_Activity_Thermogenesis(Activity_Level):
 
 def Total_Daily_Energy_Expenditure(BMR, TEF, Exercise_Energy_Expenditure, Non_Exercise_Activity_Thermogenesis):
     """sum of BMR, TEF, Exercise Energy Expenditure, and Non-Exercise Activity Thermogenesis"""
-    total_daily_energy_expenditure = BMR + TEF + Exercise_Energy_Expenditure + Non_Exercise_Activity_Thermogenesis
+    total_daily_energy_expenditure = BMR + TEF + \
+        Exercise_Energy_Expenditure + Non_Exercise_Activity_Thermogenesis
     return total_daily_energy_expenditure
 
 
@@ -50,6 +52,7 @@ def recommended_calories(total_daily_energy_expenditure, goal, weight):
     time_to_lose_one = (need_to_lose/1)*7
     # return all the "time to lose" variables to spit back out
     return rate, time_to_lose_half, time_to_lose_one
+
 
 bb = BMR(160)
 tt = TEF(bb)

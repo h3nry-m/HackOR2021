@@ -18,25 +18,25 @@ def index(request):
         rate = rc[0]
         lose_half = TDEE/rate[0]
         lose_one = TDEE/rate[1]
-        lose_one_half = TDEE/rate[2]
-        lose_two = TDEE/rate[3]
+        # lose_one_half = TDEE/rate[2]
+        # lose_two = TDEE/rate[3]
         time_to_lose_half = rc[1]
         time_to_lose_one = rc[2]
-        time_to_lose_one_half = rc[3]
-        time_to_lose_two = rc[4]
+        # time_to_lose_one_half = rc[3]
+        # time_to_lose_two = rc[4]
         return render(request, "calorie_counter/index.html", {
             "bmr": bmr,
             "Total_Daily_Energy_Expenditure": TDEE,
             "rate": rate,
             "lose_half": lose_half,
             "lose_one": lose_one,
-            "lose_one_half": lose_one_half,
-            "lose_two": lose_two,
+            # "lose_one_half": lose_one_half,
+            # "lose_two": lose_two,
             "goal": goal,
             "time_to_lose_half": time_to_lose_half,
             "time_to_lose_one": time_to_lose_one,
-            "time_to_lose_one_half": time_to_lose_one_half,
-            "time_to_lose_two": time_to_lose_two,
+            # "time_to_lose_one_half": time_to_lose_one_half,
+            # "time_to_lose_two": time_to_lose_two,
         })
     else:
         return render(request, "calorie_counter/index.html")
