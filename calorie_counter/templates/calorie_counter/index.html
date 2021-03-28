@@ -11,57 +11,123 @@
     <title>Fitness Placeholder</title>
   </head>
   <body>
-    <nav>
-      <button>
-        Register
-      </button>
-      <button>
+    <nav = class="navbar bg-dark fixed-top">
+      <h1>Calorie Counter</h1>
+      <div class="container_nav">
+      <button class="login">
         Login
       </button>
+      <button class="register">
+        Register
+      </button>
+    </div>
     </nav>
-    <br>
+    <div class="container">
     <form method="POST">
-        {% csrf_token %}
+      <h2>US Units</h2>
+        {% csrf_token %} <br>
+        
     <!--Takes the weight in pounds to store as variable "weight" to use in python-->
-    Weight (lbs): <input type="text" name="weight">
+    <div class = "rightinput">
+      <div class="simpletext">
+      Weight (lbs):
+      </div>
+      <input type="text" name="weight" class="input_box" required>
+    </div>
     <br>
     <!--Takes the weight in pounds to store as variable "goal" of what the user wants to lose-->
-    How much weight are you trying to lose? <input type="number" name="goal">(lbs)
+    <div class = "rightinput">How much weight are you trying to lose? (lbs)<input type="number" name="goal" class="input_box" required></div>
     <br>
     <!--Choice between low or high levels of workout-->
     <p>How often do you workout? (1-2 days per week = low / 3+ days per week = high)</p>
-    <select name="workout">
+    <div class = "center">
+    <select name="workout" required>
       <option value="low">Low</option>
       <option value="high">High</option>
     </select> 
+  </div>
     <br>
+    <p>How would you characterize your lifestyle?</p>
     <!--Asks the activity level to be used in energy calc-->
-    <select name="activity_level">
+    <div class="center">
+    <select name="activity_level" required>
       <option value="sedentary">Sedentary</option>
       <option value="active">Active</option>
     </select>
+    </div>
     <br>
     <!--submits the user information and other button resets the fields-->
-    <input type="submit" value="register">
-    <input type="reset">
+    <div class="inputbtns">
+    <input type="submit" value="Submit" class="inbtns">
+    <input type="reset" class="inbtns1">
+    </div>
     </form>
+    <div class="output">
+      <h2>Results</h2>
+      <p><strong>BMR:</strong> {{bmr}} Calories/day</p>
+      <p>Total Daily Energy Expenditure: {{Total_Daily_Energy_Expenditure}} Calories/day</p>
+      <p>Recommended Daily Calories per day if you want to: </p>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Rate</th>
+              <th scope="col">Daily Calories</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Lose 0.5 lbs per week:</th>
+              <td>{{Total_Daily_Energy_Expenditure - rate[0]}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Lose 1 lbs per week:</th>
+              <td>{{Total_Daily_Energy_Expenditure - rate[1]}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Lose 1.5 lbs per week:</th>
+              <td>{{Total_Daily_Energy_Expenditure - rate[2]}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Lose 2 lbs per week:</th>
+              <td>{{Total_Daily_Energy_Expenditure - rate[3]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      <p>Time to lose the weight based on your goal of losing {{goal}} lbs:</p> 
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Rate</th>
+              <th scope="col">Days to Reach Goal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">At 0.5 lbs per week it will take you:</th>
+              <td>{{time_to_lose_@half}}</td>
+            </tr>
+            <tr>
+              <th scope="row">At 1 lbs per week it will take you:</th>
+              <td>{{time_to_lose_@one}}</td>
+            </tr>
+            <tr>
+              <th scope="row">At 1.5 lbs per week it will take you:</th>
+              <td>{{time_to_lose_@one_half}}</td>
+            </tr>
+            <tr>
+              <th scope="row">At 2 lbs per week it will take you:</th>
+              <td>{{time_to_lose_@two}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    </div>
+    <div class="credits">
 
+    </div>
     <!-- Values that need to be returned after logic.py runs
     -->
-    <p>BMR: {{bmr}}</p>
-    <p>Total Daily Energy Expenditure: {{Total_Daily_Energy_Expenditure}}</p>
-    <p>Recommended Daily Calories per day if you want to: <br>
-      Lose 0.5 lbs per week: {{Total_Daily_Energy_Expenditure - rate[0]}}<br>
-      Lose 1 lbs per week: {{Total_Daily_Energy_Expenditure - rate[1]}}<br>
-      Lose 1.5 lbs per week: {{Total_Daily_Energy_Expenditure - rate[2]}}<br>
-      Lose 2 lbs per week: {{Total_Daily_Energy_Expenditure - rate[3]}}<br>
-    </p>
-    <p>Time to lose the weight based on your goal of losing {{goal}} lbs: <br>
-      At 0.5 lbs per week it will take you {{time_to_lose_@half}} days to reach your goal. <br>
-      At 1 lbs per week it will take you {{time_to_lose_@one}} days to reach your goal. <br>
-      At 1.5 lbs per week it will take you {{time_to_lose_@one_half}} days to reach your goal. <br>
-      At 2 lbs per week it will take you {{time_to_lose_@two}} days to reach your goal. <br>
-    </p>
+    
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
