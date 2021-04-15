@@ -1,4 +1,5 @@
 # HackOR2021
+![gif demonstrating the app](http://g.recordit.co/BgJ9Dw4LcP.gif)
 # Calculate Total Body Energy Expenditure TDEE
 Calculates every individual's exact amount of calories needed in a day. Each individual's TDEE is the sum of their Basal Metabolic Rate, Thermic Effect of eating, Exercise Energy Expenditure, and Non-Exercise Acvitiy Thermogenesis.
 * Basal Metabolic Rate: The amount of calories needed for the human body to function properly.
@@ -17,3 +18,6 @@ Calculates every individual's exact amount of calories needed in a day. Each ind
 # Installation
 * Make sure to have python installed.
 * Download code from github.
+
+# Link
+https://devpost.com/software/calorie-counter-zp72ie
